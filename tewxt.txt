@@ -1,0 +1,24 @@
+typedef vector<vector<int>> vvi;
+typedef vector<int> vi;
+class Solution {
+public:
+  int maxPoints(vvi &points) {
+    if (points.size() <= 2) return points.size();
+		int res = INT_MIN;
+		for (int i=0; i<points.size(); i++) {
+			unordered_map<double, int> mp;
+      double x1 = points[i][0], y1 = points[i][1];
+			for (int j=0; j<points.size(); j++) {
+				if (i == j) continue;
+        double slp, x2 = points[j][0], y2 = points[j][1];
+				if (points[i][0] == points[j][0]) slp = INT_MAX;
+				else {
+					slp = (points[i][1]-points[j][1]) / (points[i][0] - points[j][0]);
+					mp[(slp)]++; 
+				}
+        res = max(mp[slp], res);
+			}
+		}
+		return res;
+  }
+};
