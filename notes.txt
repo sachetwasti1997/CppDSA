@@ -1,0 +1,38 @@
+In C++, are the member variables allocated in the stack when we call a member function of the same class?
+
+--> Automatic class variables, also known as "automatic member variables" or simply "auto variables", 
+are member variables that are declared without the static or extern keyword. They are automatic storage 
+duration variables, meaning that they are created and destroyed automatically, and their memory 
+is allocated on the stack.
+When an object of a class is created, automatic member variables are created along with it 
+and their memory is allocated on the stack. When the object goes out of scope, the memory 
+for its automatic member variables is automatically freed, as it does with all the automatic variables.
+When a member function of a class is called, the values of the automatic member variables are not 
+stored in the stack frame, but are accessed directly from the memory where they reside. The function 
+receives a pointer or reference to the object, which it can use to access the member variables on the 
+stack.
+It's important to note that automatic member variables are specific to the object they belong to. Each
+object has its own copy of the automatic member variables, and modifying the value of an automatic 
+member variable in one object does not affect the value of the same member variable in another object.
+In summary, automatic class variables, or automatic member variables, are member variables that are 
+allocated on the stack and they have automatic storage duration, thus they are created and destroyed 
+automatically when the object of the class that they belong to goes in or out of scope.
+
+Okay then the member variables of automatic class variable are stored in the stack when we call a member 
+function of the same class
+
+--> No, the member variables of an automatic class variable are not stored in the stack when we call a 
+member function of the same class. The member variables of an automatic class variable are allocated on 
+the stack when an object of the class is created and their values persist even after the member 
+function call is complete.
+When a member function of a class is called, the program creates a block of memory on the stack, called 
+a stack frame, to store the function's parameters, local variables, and any other information needed for
+the function to execute. However, the member variables of an automatic class variable are not stored 
+in the stack frame, but are accessed directly from the memory location where they reside, which is the 
+stack.
+The function receives a pointer or reference to the object, which it can use to access the member 
+variables on the stack. The function can read and modify the values of the member variables, but the 
+memory for the member variables itself is not stored in the stack frame.
+It's important to note that automatic member variables are specific to the object they belong to. Each 
+object has its own copy of the automatic member variables, and modifying the value of an automatic 
+member variable in one object does not affect the value of the same member variable in another object.
